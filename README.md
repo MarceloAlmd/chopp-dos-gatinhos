@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+# Config
+
+--typescript Gera tsconfig.json e arquivos .ts/.tsx
+--tailwind Instala e conecta o Tailwind CSS 4 automaticamente
+--eslint Configura o ESLint com as regras oficiais do Next.js
+--app Usa o App Router (pasta app/), não o Pages Router
+--src-dir Coloca o código em src/app em vez de app/ na raiz
+--import-alias "@/\*" Permite importar import Button from "@/components/Button" em vez de ../../../components/Button
+--use-npm Garante que o package.json seja gerado para npm (evita mistura com yarn/pnpm)
