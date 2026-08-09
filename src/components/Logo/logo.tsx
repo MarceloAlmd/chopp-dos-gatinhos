@@ -9,14 +9,14 @@ const kaushanScript = Kaushan_Script({
 
 export function Logo() {
   return (
-    <div className="flex items-center gap-2">
-      <Cat className="text-brand-white" size={35} />
+    <div className="flex items-center justify-center gap-2">
+      <Cat className="text-brand-white w-4 h-4 sm:w-8 sm:h-8" />
       <h1
-        className={`text-brand-white ${kaushanScript.variable} font-logo text-2xl`}
+        className={`text-brand-white ${kaushanScript.variable} font-logo whitespace-nowrap text-[14px] md:text-2xl`}
       >
-        Chopp dos gatinhos{" "}
+        Chopp dos gatinhos
       </h1>
-      <PawPrint className="text-brand-white" size={35} />
+      <PawPrint className="text-brand-white w-4 h-4 sm:w-8 sm:h-8" />
     </div>
   );
 }
