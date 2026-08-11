@@ -1,18 +1,17 @@
 import Link from "next/link";
-export function NavButton() {
+
+type NavButtonProps = {
+  title: string;
+};
+
+export function NavButton({ title }: NavButtonProps) {
   return (
-    <nav className="flex gap-4 text-brand-white">
+    <nav className="flex gap-4 text-brand-gray-100">
       <Link
         href="/"
-        className="text-[12px] sm:text-[16px] border-b border-transparent pb-0.5 transition-all hover:border-brand-white"
+        className="text-[12px] sm:text-[16px] border-b border-transparent pb-0.5 transition-all hover:border-brand-gray-100"
       >
-        Produtos
-      </Link>
-      <Link
-        href="/history"
-        className="text-[12px] sm:text-[16px] border-b border-transparent pb-0.5 transition-all hover:border-brand-white"
-      >
-        Por que Comprar ?
+        {title}
       </Link>
     </nav>
   );
