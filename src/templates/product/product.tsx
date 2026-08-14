@@ -1,5 +1,27 @@
-import { Items } from "@/components/Items";
+import { Items, Product } from "@/components/Items";
 import { Search } from "lucide-react";
+
+const products: Product[] = [
+  {
+    title: "Abacate",
+    description: "Cremoso e delicioso, feito com abacate maduro e leite em pó",
+    price: 1,
+    src: "/abacate.png",
+  },
+
+  {
+    title: "Chiclete",
+    description: "Cremoso e delicioso, feito com chiclete e leite em pó",
+    price: 1,
+    src: "/chiclete.png",
+  },
+  {
+    title: "Chocolate",
+    description: "Cremoso e delicioso, feito com chocolate em pó e leite em pó",
+    price: 1,
+    src: "/chocolate.png",
+  },
+];
 
 export function Products() {
   return (
@@ -23,13 +45,15 @@ export function Products() {
         </div>
       </div>
 
-      <Items />
-      <Items />
-      <Items />
-      <Items />
-      <Items />
-      <Items />
-      <Items />
+      {products.map((product) => (
+        <Items
+          key={product.title}
+          src={product.src}
+          title={product.title}
+          price={product.price}
+          description={product.description}
+        />
+      ))}
     </div>
   );
 }
