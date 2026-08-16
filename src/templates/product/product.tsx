@@ -1,29 +1,15 @@
-import { Items, Product } from "@/components/Items";
+"use client";
+
+import { useState } from "react";
+import { Items } from "@/components/Items";
+import { products } from "@/utils/products";
 import { Search } from "lucide-react";
 
-const products: Product[] = [
-  {
-    title: "Abacate",
-    description: "Cremoso e delicioso, feito com abacate maduro e leite em pó",
-    price: 1,
-    src: "/abacate.png",
-  },
-
-  {
-    title: "Chiclete",
-    description: "Cremoso e delicioso, feito com chiclete e leite em pó",
-    price: 1,
-    src: "/chiclete.png",
-  },
-  {
-    title: "Chocolate",
-    description: "Cremoso e delicioso, feito com chocolate em pó e leite em pó",
-    price: 1,
-    src: "/chocolate.png",
-  },
-];
-
 export function Products() {
+  const [search, setSearch] = useState<string>();
+  // const [productFilter, setProductFilter] = useState<[]>();
+  console.log(search);
+
   return (
     <div className="max-w-6x1 mx-auto px-4 sm:px-6 md:px-16 lg:px-40 xl:px-60">
       <div className="flex flex-col gap-4  md:max-w-90 mt-3 md:mt-7">
@@ -41,6 +27,7 @@ export function Products() {
             className="py-2.5 w-full outline-0"
             placeholder="Buscar sabor..."
             type="text"
+            onChange={(event) => setSearch(event.target.value)}
           />
         </div>
       </div>
