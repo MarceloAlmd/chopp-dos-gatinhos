@@ -6,9 +6,13 @@ import { products } from "@/utils/products";
 import { Search } from "lucide-react";
 
 export function Products() {
-  const [search, setSearch] = useState<string>();
-  // const [productFilter, setProductFilter] = useState<[]>();
-  console.log(search);
+  const [search, setSearch] = useState<string>("");
+
+  const filterProducts = products.filter(
+    (product) =>
+      product.title.toLowerCase().includes(search.toLowerCase()) ||
+      product.description.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="max-w-6x1 mx-auto px-4 sm:px-6 md:px-16 lg:px-40 xl:px-60">
@@ -27,20 +31,40 @@ export function Products() {
             className="py-2.5 w-full outline-0"
             placeholder="Buscar sabor..."
             type="text"
+            value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
       </div>
 
-      {products.map((product) => (
-        <Items
-          key={product.title}
-          src={product.src}
-          title={product.title}
-          price={product.price}
-          description={product.description}
-        />
-      ))}
+      {search ? (
+        filterProducts.length > 0 ? (
+          filterProducts.map((product) => (
+            <Items
+              key={product.title}
+              src={product.src}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+            />
+          ))
+        ) : (
+          <div>
+            <h2 className="text-2xl font-bold mt-5">Sabor não encontrado 😢</h2>
+            <p>Não encontramos nenhum produto com esse sabor.</p>
+          </div>
+        )
+      ) : (
+        products.map((product) => (
+          <Items
+            key={product.title}
+            src={product.src}
+            title={product.title}
+            price={product.price}
+            description={product.description}
+          />
+        ))
+      )}
     </div>
   );
 }
