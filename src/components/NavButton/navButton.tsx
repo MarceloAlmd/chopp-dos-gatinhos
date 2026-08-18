@@ -9,7 +9,7 @@ type NavButtonProps = {
 export function NavButton({ title }: NavButtonProps) {
   const pathname = usePathname();
 
-  const href = title === "Produtos" ? "/" : "/por-que-comprar";
+  const href = title === "Produtos" ? "/" : "/history";
   const isActive = pathname === href;
 
   return (
